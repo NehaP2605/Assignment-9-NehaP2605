@@ -1,0 +1,27 @@
+#!/bin/sh
+# Short-Description: Initialize scull module
+SCULL_LOAD=/bin/scull/scull_load
+SCULL_UNLOAD=/bin/scull/scull_unload
+
+case "$1" in
+    start)
+        echo "Loading scull module..." > /dev/console
+        if [ -x "$SCULL_LOAD" ]; then
+            $SCULL_LOAD
+        else
+            echo "Missing scull_load" > /dev/console
+        fi
+        ;;
+    stop)
+        echo "Unloading scull module..." > /dev/console
+        if [ -x "$SCULL_UNLOAD" ]; then
+            $SCULL_UNLOAD
+        fi
+        ;;
+    *)
+        echo "Usage: $0 {start|stop}" > /dev/console
+        exit 1
+        ;;
+esac
+
+exit 0

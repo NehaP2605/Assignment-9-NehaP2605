@@ -1,0 +1,32 @@
+#!/bin/sh
+# Short-Description: Initialize misc-modules module
+
+MISC_LOAD=/bin/misc-modules/module_load
+MISC_UNLOAD=/bin/misc-modules/module_unload
+
+case "$1" in
+    start)
+    	echo "Loading misc modules..." > /dev/console
+	if [ -x "$MISC_LOAD" ]; then
+		$MISC_LOAD faulty
+	else
+		echo "Missing misc_load" > /dev/console
+	fi
+
+	if ! modprobe hello; then
+		echo "modprobe hello failed" > /dev/console
+	fi
+        ;;
+    stop)
+        echo "Unloading misc modules..." > /dev/console
+	rmmod hello 2>/dev/null
+	if [ -x "$MISC_UNLOAD" ]; then
+		$MISC_UNLOAD faulty
+	fi
+        ;;
+    *)
+        echo "Usage: $0 {start|stop}" > /dev/console
+        exit 1
+        ;;
+esac
+exit 0
