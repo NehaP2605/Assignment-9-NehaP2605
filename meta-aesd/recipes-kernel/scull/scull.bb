@@ -30,14 +30,14 @@ do_install:append() {
     # Install the module
     module_do_install
     # Install scripts
-    install -d ${D}/bin/scull
-    install -m 0755 ${WORKDIR}/scull_load ${D}/bin/scull/scull_load
-    install -m 0755 ${WORKDIR}/scull_unload ${D}/bin/scull/scull_unload
+    install -d ${D}${bindir}/scull
+    install -m 0755 ${WORKDIR}/scull_load ${D}${bindir}/scull/scull_load
+    install -m 0755 ${WORKDIR}/scull_unload ${D}${bindir}/scull/scull_unload
     #Install the init script
     install -d ${D}${sysconfdir}/init.d
     install -m 0755 ${WORKDIR}/scull-init ${D}${sysconfdir}/init.d/scull-init
 }
 
 FILES:${PN} += "${sysconfdir}/init.d/scull-init \
-                /bin/scull/scull_load \
-                /bin/scull/scull_unload"
+                ${bindir}/scull/scull_load \
+                ${bindir}/scull/scull_unload"

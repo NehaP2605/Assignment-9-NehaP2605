@@ -1,8 +1,8 @@
 #!/bin/sh
 # Short-Description: Initialize misc-modules module
 
-MISC_LOAD=/bin/misc-modules/module_load
-MISC_UNLOAD=/bin/misc-modules/module_unload
+MISC_LOAD=/usr/bin/misc-modules/module_load
+MISC_UNLOAD=/usr/bin/misc-modules/module_unload
 
 case "$1" in
     start)

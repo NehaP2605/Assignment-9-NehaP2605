@@ -29,14 +29,14 @@ do_install:append() {
     # Install the module
     module_do_install
     # Install scripts
-    install -d ${D}/bin/misc-modules
-    install -m 0755 ${WORKDIR}/module_load ${D}/bin/misc-modules/module_load
-    install -m 0755 ${WORKDIR}/module_unload ${D}/bin/misc-modules/module_unload
+    install -d ${D}${bindir}/misc-modules
+    install -m 0755 ${WORKDIR}/module_load ${D}${bindir}/misc-modules/module_load
+    install -m 0755 ${WORKDIR}/module_unload ${D}${bindir}/misc-modules/module_unload
     #Install the init script
     install -d ${D}${sysconfdir}/init.d
     install -m 0755 ${WORKDIR}/misc-modules-init ${D}${sysconfdir}/init.d/misc-modules-init
 }
 
-FILES:${PN} += "/bin/misc-modules/module_load \
-                /bin/misc-modules/module_unload \
+FILES:${PN} += "${bindir}/misc-modules/module_load \
+                ${bindir}/misc-modules/module_unload \
                 ${sysconfdir}/init.d/misc-modules-init"

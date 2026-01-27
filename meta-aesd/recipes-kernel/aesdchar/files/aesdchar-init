@@ -1,0 +1,27 @@
+#!/bin/sh
+# Short-Description: Initialize aesdchar module
+AESDCHAR_LOAD=/usr/bin/aesdchar/aesdchar_load
+AESDCHAR_UNLOAD=/usr/bin/aesdchar/aesdchar_unload
+
+case "$1" in
+    start)
+        echo "Loading aesdchar module..." > /dev/console
+        if [ -x "$AESDCHAR_LOAD" ]; then
+            $AESDCHAR_LOAD
+        else
+            echo "Missing aesdchar_load" > /dev/console
+        fi
+        ;;
+    stop)
+        echo "Unloading aesdchar module..." > /dev/console
+        if [ -x "$AESDCHAR_UNLOAD" ]; then
+            $AESDCHAR_UNLOAD
+        fi
+        ;;
+    *)
+        echo "Usage: $0 {start|stop}" > /dev/console
+        exit 1
+        ;;
+esac
+
+exit 0
