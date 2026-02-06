@@ -11,7 +11,7 @@ SRC_URI = "git://git@github.com/NehaP2605/assignment-3-NehaP2605-.git;protocol=s
            file://aesdchar_load \
            file://aesdchar_unload"
 
-SRCREV = "55e4d5a4e79885f2c55a54b7f7087727760703ff"
+SRCREV = "fd4a0fbeb78262ac583997bd997be73463e1bfde"
 
 PV = "1.0+git${SRCPV}"
 S = "${WORKDIR}/git/aesd-char-driver"

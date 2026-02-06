@@ -8,7 +8,7 @@ SRC_URI = "git://git@github.com/NehaP2605/assignment-3-NehaP2605-.git;protocol=s
 
 PV = "1.0+git${SRCPV}"
 # TODO: set to reference a specific commit hash in your assignment repo
-SRCREV = "55e4d5a4e79885f2c55a54b7f7087727760703ff"
+SRCREV = "fd4a0fbeb78262ac583997bd997be73463e1bfde"
 
 # This sets your staging directory based on WORKDIR, where WORKDIR is defined at 
 # https://docs.yoctoproject.org/ref-manual/variables.html?highlight=workdir#term-WORKDIR
